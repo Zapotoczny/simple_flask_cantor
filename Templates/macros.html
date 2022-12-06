@@ -1,0 +1,9 @@
+{% macro show_flash_message(message) %}
+    <div class="alert alert-warning" role="alert">{{ message }}</div>
+{% endmacro %}
+
+{% macro show_all_flash_message() %}
+    {% for message in get_flashed_messages() %}
+        {{ show_flash_message(message) }}
+    {% endfor %}
+{% endmacro %}

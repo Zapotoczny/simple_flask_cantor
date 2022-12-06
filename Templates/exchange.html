@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container"><br>
+     <div class="row justify-content-start">
+           <div class="col-5 h1">New order</div>
+     </div>
+     <form id="exchange_form"action="{{url_for('exchange')}}"method="POST">
+           <div class="row justify-content-start">
+                 <div class="col-1col-form-label"><label for="currency">Currency</label></div>
+                 <div class="col-4">
+                       <select id="currency"name="currency"class="form-select">
+                             {%for currency in offer.currencies%}
+                                   <option value="{{currency.code}}">{{currency.name}}</option>
+                             {%endfor%}
+                       </select><br>
+                 </div>
+           </div>
+           <div class="row justify-content-start">
+                 <div class="col-1col-form-label"><label for="amount">Amount</label></div>
+                 <div class="col-4">
+                       <input type="text"id="amount"name="amount"value="100"class="form-control"><br>
+               </div>
+          </div>
+          <div class="row justify-content-start">
+               <div class="col-2"><input type="submit" value="Send" class="btn btn-primary"></div>
+          </div>
+      </form>
+</div>
+{% endblock %}
